@@ -1,4 +1,4 @@
-name: C/C++ CI
+name: Makefile CI
 
 on:
   push:
@@ -13,11 +13,15 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
+    
     - name: configure
       run: ./configure
-    - name: make
+      
+    - name: Install dependencies
       run: make
-    - name: make check
+      
+    - name: Run check
       run: make check
-    - name: make distcheck
+      
+    - name: Run distcheck
       run: make distcheck
